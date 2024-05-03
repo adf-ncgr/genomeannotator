@@ -28,6 +28,7 @@ process REPEATMASKER_STAGELIB {
     """
        cp ${baseDir}/assets/repeatmasker/my_genome.fa .
        cp ${baseDir}/assets/repeatmasker/repeats.fa .
+       cp $fasta .
        cp -R /usr/local/share/RepeatMasker/Libraries .
        cp $db Libraries/Dfam.h5
        export LIBDIR=\$PWD/Libraries
