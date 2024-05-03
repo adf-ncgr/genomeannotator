@@ -26,7 +26,7 @@ workflow REPEATMASKER {
        GUNZIP.out.gunzip.map {m,g -> g}
     )
     REPEATMASKER_REPEATMASK( 
-       FASTASPLITTER.out.chunks.collect(),
+       FASTASPLITTER.out.chunks.flatten(),
        REPEATMASKER_STAGELIB.out.library.collect().map{it[0].toString()},
        rm_lib.collect(),
        rm_species
