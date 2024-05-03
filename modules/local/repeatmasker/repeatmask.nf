@@ -23,7 +23,7 @@ process REPEATMASKER_REPEATMASK {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    base_name = file(fasta).getSimpleName()
+    base_name = fasta.getName()
     genome_rm = base_name + ".masked"
     rm_gff = base_name + ".out.gff"
     rm_tbl = base_name + ".tbl"
