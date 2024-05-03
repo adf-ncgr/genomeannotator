@@ -16,7 +16,7 @@ workflow REPEATMASKER {
     rm_db
 
     main:
-    FASTASPLITTER(genome,params.npart_size)
+    FASTASPLITTER(genome,params.npart_size) | 
     GUNZIP(
        create_meta_channel(rm_db)
     )
@@ -26,7 +26,7 @@ workflow REPEATMASKER {
        GUNZIP.out.gunzip.map {m,g -> g}
     )
     REPEATMASKER_REPEATMASK( 
-       FASTASPLITTER.out.chunks,
+       FASTASPLITTER.out.chunks.flatten(),
        REPEATMASKER_STAGELIB.out.library.collect().map{it[0].toString()},
        rm_lib.collect(),
        rm_species
