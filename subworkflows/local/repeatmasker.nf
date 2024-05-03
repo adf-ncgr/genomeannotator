@@ -36,7 +36,7 @@ workflow REPEATMASKER {
     
     emit:
     fasta = REPEATMASKER_CAT_FASTA.out.fasta
-    versions = REPEATMASKER_STAGELIB.out.versions.mix(REPEATMASKER_REPEATMASK.out.versions,FASTASPLITTER.out.versions,REPEATMASKER_CAT_FASTA.out.versions)
+    versions = REPEATMASKER_STAGELIB.out.versions.mix(REPEATMASKER_REPEATMASK.out.versions,REPEATMASKER_CAT_FASTA.out.versions)
 }
 
 
